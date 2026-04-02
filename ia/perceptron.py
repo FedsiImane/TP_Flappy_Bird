@@ -5,9 +5,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'game'))
 from game_engine import FlappyBirdEnv
 
 class Perceptron:
-  def __init__(self):
-      self.weights = np.array([0, 0, 0, 10, 0])
-      self.bias = -2
+  def __init__(self, n_inputs=5):
+      self.weights = np.random.uniform(-1, 1, n_inputs)
+      self.bias = np.random.uniform(-1, 1)
 
   def forward(self, x):
       z = np.dot(self.weights, x) + self.bias
