@@ -2,8 +2,11 @@ import sys
 import os
 import neat
 import pickle
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'game'))
+
 from game_engine import FlappyBirdEnv
+
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), 'neat_config.txt')
 N_GENERATIONS = 20
 
@@ -53,7 +56,9 @@ def run():
     filename_prefix=os.path.join(os.path.dirname(__file__), 'checkpoints', 'checkpoint-')
   )
   population.add_reporter(checkpointer)
+  
   best = population.run(eval_genomes, N_GENERATIONS)
+  
   output_path = os.path.join(os.path.dirname(__file__), 'best_genome.pkl')
   with open(output_path, 'wb') as f:
     pickle.dump(best, f)

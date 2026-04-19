@@ -7,9 +7,8 @@ import statistics
 
 def naive_action(state):
   bird_above_gap_top = state[3]
-  bird_below_gap_bottom = state[4]
   velocity = state[1]
-  if bird_above_gap_top <= bird_below_gap_bottom or velocity < -0.1:
+  if bird_above_gap_top < 0 or velocity < -0.3:
       return 0
   return 1
 
